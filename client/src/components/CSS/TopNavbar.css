@@ -1,0 +1,15 @@
+.top-navbar {
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  left: 140px;
+}
+
+.top-navbar .navbar-text .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  background-color: transparent;
+  border-color: #e0e0e0;
+}
