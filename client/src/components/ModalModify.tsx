@@ -27,6 +27,8 @@ export function ModalModify({ studentId, subjectId, showModal, handleCloseModal 
       .catch(error => {
         console.error(error);
       });
+
+      handleCloseModal();
   };
 
   return (

@@ -1,5 +1,3 @@
-
-
 public class StudentDTO {
 
     public string? FirstName { get; set;}
