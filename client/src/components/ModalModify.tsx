@@ -23,30 +23,33 @@ export function ModalModify({ studentId, subjectId, showModal, handleCloseModal 
     axios.put('http://localhost:5117/Grade', studentUpdated)
       .then(response => {
         console.log(response.data);
+        handleCloseModal();
       })
       .catch(error => {
         console.error(error);
+        handleCloseModal();
       });
-
-      handleCloseModal();
   };
 
   return (
     <Modal show={showModal} onHide={handleCloseModal} centered>
       <Modal.Header closeButton>
-        <Modal.Title>Update Grade:</Modal.Title>
+        <Modal.Title>Update Grade</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="grade">
+          <Form.Group>
             <Form.Label>Grade:</Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               placeholder="Enter the grade"
               value={grade}
-              onChange={e => setGrade(Number(e.target.value))}
+              onChange={(e) => {
+                setGrade(parseInt(e.target.value))
+              }}
             />
           </Form.Group>
+          <br></br>
           <Button variant="primary" type="submit">
             Send
           </Button>

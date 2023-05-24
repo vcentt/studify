@@ -5,7 +5,8 @@ import { Form, Button, Alert } from 'react-bootstrap';
 const AddStudent = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [showAlert, setShow] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,15 +18,13 @@ const AddStudent = () => {
     axios.post('http://localhost:5117/Student', studentData)
       .then(response => {
         console.log(response.data);
-        <>
-          <Alert show={showAlert} variant='success'>Student Create Successfully</Alert>
-        </>
+        setShowAlert(true)
+        setAlertType("success")
       })
       .catch(error => {
         console.error(error);
-        <>
-          <Alert show={showAlert} variant='danger'>Error</Alert>
-        </>
+        setShowAlert(true)
+        setAlertType("error")
       });
 
   };
@@ -38,7 +37,7 @@ const AddStudent = () => {
             <Form.Label>First Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter first name"
+              placeholder="Ingrese primer nombre"
               value={firstName}
               onChange={e => setFirstName(e.target.value)}
             />
@@ -48,13 +47,18 @@ const AddStudent = () => {
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter last name"
+              placeholder="Ingrese segundo nombre"
               value={lastName}
               onChange={e => setLastName(e.target.value)}
             />
           </Form.Group>
-          <Button onClick={() => { setShow(true) }} variant="primary" type="submit">Add Student</Button>
+          <Button variant="primary" type="submit">Add Student</Button>
         </Form>
+        {showAlert && (
+          <Alert variant={alertType === 'success' ? 'success' : 'danger'}>
+            {alertType === 'success' ? 'Student created sucesfully' : 'There was an error in creating the student'}
+          </Alert>
+        )}
       </div>
     </main>
   );

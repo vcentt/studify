@@ -11,26 +11,35 @@ interface Props {
 }
 
 export function StudentsBySubject({ subjectId }: Props) {
-    const [showModal, setShowModal] = useState(false);
-    const [selectedStudentId, setSelectedStudentId] = useState<number>();
-    const handleCloseModal = () => setShowModal(false);
-    const handleShowModal = (studentId: number) => {
-        setSelectedStudentId(studentId);
-        setShowModal(true);
-    };
     const [allStudent, setAllStudent] = useState<IStudent[]>([]);
-
-    //To Filter
-    const [studentFilter, setStudentFiltered] = useState<string | null>(null);
-    const filteredStudents = !!studentFilter && studentFilter.length > 0 ?
-        allStudent.filter((students) => students.firstName.toLowerCase().includes(studentFilter.toLowerCase())) : allStudent
-
     useEffect(() => {
         axios.get(`http://localhost:5117/Grade/${subjectId}`)
             .then((response: AxiosResponse) => {
                 setAllStudent(response.data)
             })
     }, [subjectId])
+
+
+    //To Filter
+    const [studentFilter, setStudentFiltered] = useState<string | null>(null);
+    const filteredStudents = !!studentFilter && studentFilter.length > 0 ?
+        allStudent.filter((students) => students.firstName.toLowerCase().includes(studentFilter.toLowerCase())) : allStudent
+
+    const [modalVisibility, setModalVisibility] = useState<{ [key: number]: boolean }>({});
+
+    const handleCloseModal = (studentId: number) => {
+        setModalVisibility((prevVisibility) => ({
+            ...prevVisibility,
+            [studentId]: false
+        }));
+    };
+
+    const handleShowModal = (studentId: number) => {
+        setModalVisibility((prevVisibility) => ({
+            ...prevVisibility,
+            [studentId]: true
+        }));
+    };
 
     return (
         <main>
@@ -61,10 +70,12 @@ export function StudentsBySubject({ subjectId }: Props) {
                                     <td>
                                         <Button onClick={() => { handleShowModal(student.studentId) }} size="sm" className="mr-2"><FaEdit className="edit-icon" /></Button>
                                         <ModalModify
-                                            studentId={Number(selectedStudentId)}
+                                            studentId={Number(student.studentId)}
                                             subjectId={Number(subjectId)}
-                                            showModal={showModal}
-                                            handleCloseModal={handleCloseModal}
+                                            showModal={modalVisibility[student.studentId]}
+                                            handleCloseModal={() => {
+                                                handleCloseModal(student.studentId)
+                                            }}
                                         />
                                     </td>
                                 </tr>
