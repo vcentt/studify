@@ -38,3 +38,5 @@ logs/
 *.resharper.user
 *.rsuite
 *.rproj
+*.csproj
+*.json
