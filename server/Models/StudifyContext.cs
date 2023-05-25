@@ -15,6 +15,8 @@ public partial class StudifyContext : DbContext
     {
     }
 
+    public virtual DbSet<Assistance> Assistances { get; set; }
+
     public virtual DbSet<Grade> Grades { get; set; }
 
     public virtual DbSet<Student> Students { get; set; }
@@ -26,6 +28,20 @@ public partial class StudifyContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Assistance>(entity =>
+        {
+            entity.HasKey(e => e.AssistanceId).HasName("PK__Assistan__901E90B9BFFA1611");
+
+            entity.ToTable("Assistance");
+
+            entity.Property(e => e.AssistanceId).HasColumnName("AssistanceID");
+            entity.Property(e => e.StudentId).HasColumnName("StudentID");
+
+            // entity.HasOne(d => d.Student).WithMany(p => p.Assistances)
+            //     .HasForeignKey(d => d.StudentId)
+            //     .HasConstraintName("FK__Assistanc__IsPre__5CD6CB2B");
+        });
+
         modelBuilder.Entity<Grade>(entity =>
         {
             entity.HasKey(e => e.GradeId).HasName("PK__Grades__54F87A373B94808D");
@@ -38,11 +54,9 @@ public partial class StudifyContext : DbContext
             // entity.HasOne(d => d.Student)
             //     .WithMany(p => p.Grades)
             //     .HasForeignKey(d => d.StudentId)
-            //     .OnDelete(DeleteBehavior.Cascade)
             //     .HasConstraintName("FK__Grades__StudentI__3B75D760");
 
-            entity.HasOne(d => d.Subject)
-                .WithMany(p => p.Grades)
+            entity.HasOne(d => d.Subject).WithMany(p => p.Grades)
                 .HasForeignKey(d => d.SubjectId)
                 .HasConstraintName("FK__Grades__SubjectI__3C69FB99");
         });

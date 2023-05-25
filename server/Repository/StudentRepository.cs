@@ -51,6 +51,15 @@ public class StudentRepository : IStudentRepository {
             await _context.Grades.AddAsync(gradesDTO);
         }
         await _context.SaveChangesAsync();
+
+        var studentAssistanceDTO = new Assistance {
+            StudentId = studentDTO.StudentId,
+            AssistanceDate = DateOnly.FromDateTime(DateTime.Now),
+            IsPresent = false
+        };
+        _context.Assistances.Add(studentAssistanceDTO);
+        await _context.SaveChangesAsync();
+
         return studentDTO;
     }
 

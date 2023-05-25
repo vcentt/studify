@@ -1,12 +1,16 @@
 using Interface.IStudentRepository;
+using Interfaces.IAssistanceRepository;
+using Interfaces.IAssistanceService;
 using Interfaces.IGradeRepository;
 using Interfaces.IGradeService;
 using Interfaces.IStudentService;
 using Microsoft.EntityFrameworkCore;
 using Repository.GradeRepository;
+using Services.AssistanceService;
 using Repository.StudentRepository;
+using Repository.AssistanceRepository;
 using server.Models;
-using Services.GradeServices;
+using Services.GradeService;
 using Services.StudentService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,9 +34,11 @@ builder.Services.AddSwaggerGen();
 // Connection with my DB
 builder.Services.AddDbContext<StudifyContext>(op => op.UseSqlServer("name:ConnectionStrings:DbConnection"));
 
+builder.Services.AddScoped<IAssistanceRepository , AssistanceRepository>();
 builder.Services.AddScoped<IStudentRepository , StudentRepository>();
 builder.Services.AddScoped<IGradeRepository , GradeRepository>();
 builder.Services.AddScoped<IStudentService , StudentService>();
+builder.Services.AddScoped<IAssistanceService , AssistanceService>();
 builder.Services.AddScoped<IGradeService , GradeService>();
 
 var app = builder.Build();

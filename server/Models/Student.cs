@@ -11,5 +11,7 @@ public partial class Student
 
     public string? LastName { get; set; }
 
+    // public virtual ICollection<Assistance> Assistances { get; set; } = new List<Assistance>();
+
     // public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
 }

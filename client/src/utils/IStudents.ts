@@ -18,3 +18,10 @@ export interface IStudentWithSubjects {
     socialSciences : number;
     naturalSciences : number;
 }
+
+export interface IStudentAssistance {
+    studentId : number
+    firstName: string,
+    lastName : string,
+    isPresent : boolean
+}

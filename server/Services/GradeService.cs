@@ -2,7 +2,7 @@ using Interfaces.IGradeRepository;
 using Interfaces.IGradeService;
 using server.Models;
 
-namespace Services.GradeServices;
+namespace Services.GradeService;
 
 public class GradeService : IGradeService
 {
