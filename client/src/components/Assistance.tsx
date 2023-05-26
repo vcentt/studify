@@ -2,7 +2,7 @@ import { useState } from "react"
 import axios, { AxiosResponse } from "axios"
 import { Button, Table } from "react-bootstrap"
 import { IStudentAssistance } from "../utils/IStudents"
-import { BsCheckSquareFill, BsCheckSquare, BsCheck, BsX } from "react-icons/bs";
+import { BsCheck, BsX } from "react-icons/bs";
 
 
 
