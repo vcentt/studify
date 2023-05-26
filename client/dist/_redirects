@@ -1,2 +1,4 @@
-/*    /index.html  200
-/add-student
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
