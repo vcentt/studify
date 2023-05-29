@@ -16,18 +16,20 @@ User-Friendly Interface: The application offers an intuitive user interface that
 ## Installation and Usage
 To use the Studify application locally, follow these steps:
 
-1. Clone the repository from GitHub: https://github.com/your-username/studify
+1. Clone the repository from GitHub: https://github.com/vcentt/studify
 2. Set up the back-end:
-  - Navigate to the backend directory.
+  - Navigate to the server directory.
   - Install the necessary dependencies using a package manager like npm or yarn.
-  - Configure the connection to your SQL Server database in the appsettings.json       file.
+  - Configure the connection to your SQL Server database in the appsettings.json file.
   - Run the back-end server using the command dotnet run.
 3. Set up the front-end:
-  - Navigate to the frontend directory.
+  - Navigate to the client directory.
   - Install the necessary dependencies using a package manager like npm or yarn.
   - Update the API endpoint in the api.js file to point to your back-end server.
   - Run the front-end development server using the command npm run dev or yarn dev.
-4. Access the application in your web browser at http://localhost:3000.
+4. Set up SQL Database: 
+  - Execute the SQL script to create the necessary tables and populate initial data. You can find the script here:                                   https://gist.github.com/vcentt/50342e34552ab63f676ff2965335a645.
+4. Access the application in your web browser at http://localhost:PORT.
 
 
 ## Deployment
