@@ -13,7 +13,7 @@ function App() {
 
   const [allStudent, setAllStudent] = useState<IStudentWithSubjects[]>([]);
   useEffect(() => {
-    axios.get('https://studifyapi.azurewebsites.net/Grade')
+    axios.get('https://studify.azurewebsites.net/Grade')
       .then((reponse: AxiosResponse) => {
         setAllStudent(reponse.data);
       })
