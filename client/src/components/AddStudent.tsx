@@ -15,7 +15,7 @@ const AddStudent = () => {
       lastName
     };
 
-    axios.post('http://localhost:5117/Student', studentData)
+    axios.post('https://studify.azurewebsites.net/Student', studentData)
       .then(response => {
         console.log(response.data);
         setShowAlert(true)

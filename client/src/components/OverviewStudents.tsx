@@ -17,7 +17,7 @@ export function OverviewStudents({ data }: Props) {
 
   const handleToDelete = (studentId: number | undefined) => {
     try {
-      axios.delete(`http://localhost:5117/Student/${studentId}`);
+      axios.delete(`https://studify.azurewebsites.net/Student/${studentId}`);
       <Alert key={'success'} variant='success'>Student Deleted Sucesfully</Alert>
     } catch (e) {
       <Alert key={'sucess'} variant='danger'>Error</Alert>

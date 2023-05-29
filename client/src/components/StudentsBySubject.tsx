@@ -13,7 +13,7 @@ interface Props {
 export function StudentsBySubject({ subjectId }: Props) {
     const [allStudent, setAllStudent] = useState<IStudent[]>([]);
     useEffect(() => {
-        axios.get(`http://localhost:5117/Grade/${subjectId}`)
+        axios.get(`https://studify.azurewebsites.net/Grade/${subjectId}`)
             .then((response: AxiosResponse) => {
                 setAllStudent(response.data)
             })

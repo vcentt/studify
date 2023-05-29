@@ -18,7 +18,7 @@ export function Assistance() {
             isPresent: isPresent
         }
 
-        axios.put('http://localhost:5117/Assistance', userChangeAssistance)
+        axios.put('https://studify.azurewebsites.net/Assistance', userChangeAssistance)
             .then(response => {
                 console.log(response.data);
             })
@@ -29,7 +29,7 @@ export function Assistance() {
 
 
     const handleSubmit = () => {
-        axios.get(`http://localhost:5117/Assistance?assistanceDate=${date}`)
+        axios.get(`https://studify.azurewebsites.net/Assistance?assistanceDate=${date}`)
             .then((response: AxiosResponse) => {
                 setAllStudent(response.data)
                 setShowTable(true);

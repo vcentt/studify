@@ -20,7 +20,7 @@ export function ModalModify({ studentId, subjectId, showModal, handleCloseModal 
       grade
     };
 
-    axios.put('http://localhost:5117/Grade', studentUpdated)
+    axios.put('https://studify.azurewebsites.net/Grade', studentUpdated)
       .then(response => {
         console.log(response.data);
         handleCloseModal();
