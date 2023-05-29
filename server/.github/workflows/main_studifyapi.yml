@@ -22,6 +22,9 @@ jobs:
           dotnet-version: '7.x'
           include-prerelease: true
 
+      - name: Change to 'server' directory
+        run: cd server
+
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
@@ -54,4 +57,4 @@ jobs:
           app-name: 'studifyapi'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4996AD81BE7A46A58C730F5AC11E09ED }}
-          package: .
+          package: ./server
