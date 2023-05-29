@@ -3,14 +3,15 @@
 Studify is a web-based application designed to help teachers efficiently manage student information, grades, and attendance. The project aims to provide a user-friendly interface for teachers to keep track of their students' performance and attendance in four core subjects taught at school.
 
 ## Features
-Student Management: Easily add, update, and remove student records, including their personal details such as name and contact information.
+Student Management: Easily add, update, and remove student records, including their personal details such as name.
 Grades Management: Record and manage grades for each student across the four core subjects. Teachers can enter and update grades as needed.
 Attendance Tracking: Keep a daily record of student attendance. Mark students as present or absent for a specific date and review attendance history.
 User-Friendly Interface: The application offers an intuitive user interface that is easy to navigate and interact with. Teachers can quickly access the desired information and perform necessary actions.
-Technologies Used
-Front-End: React, Vite, TypeScript, Axios, Bootstrap, React Router.
-Back-End: ASP.NET 7, Entity Framework, SQL Server.
-Deployment: Front-End deployed on Netlify, Back-End deployed on Azure App Service.
+
+## Technologies Used
+#### Front-End: React, Vite, TypeScript, Axios, Bootstrap, React Router.
+#### Back-End: ASP.NET 7, Entity Framework, SQL Server.
+#### Deployment: Front-End deployed on Netlify, Back-End deployed on Azure App Service.
 
 ## Installation and Usage
 To use the Studify application locally, follow these steps:
