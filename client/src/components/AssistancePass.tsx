@@ -25,9 +25,10 @@ export function AssistancePass() {
             console.error(error);
         }
     };
+
     useEffect(() => {
         fetchStudents();
-      }, []);
+      }, [setDate]);
     
     const handleAssistanceChange = (studentId:number , isPresent:boolean) => {
         const updatedAssistanceData = assistanceData.map((data) => {
@@ -57,7 +58,7 @@ export function AssistancePass() {
                 value={date}
                 onChange={e => setDate(e.target.value)}
             />
-            <Button variant="primary" onClick={handleToSubmitAssistance}>Search</Button>
+            <Button variant="primary" onClick={handleToSubmitAssistance}>Send</Button>
             <Table striped bordered responsive>
                 <thead>
                     <tr>
