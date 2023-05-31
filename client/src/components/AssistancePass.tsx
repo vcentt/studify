@@ -28,7 +28,7 @@ export function AssistancePass() {
 
     useEffect(() => {
         fetchStudents();
-      }, [setDate]);
+      }, [date]);
     
     const handleAssistanceChange = (studentId:number , isPresent:boolean) => {
         const updatedAssistanceData = assistanceData.map((data) => {
