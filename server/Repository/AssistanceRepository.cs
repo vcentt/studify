@@ -53,4 +53,11 @@ public class AssistanceRepository : IAssistanceRepository {
         await _context.SaveChangesAsync();
         return updateAssistance;
     }
+
+    public async Task<Assistance[]> Add(Assistance[] assistances) {
+        _context.AddRange(assistances);
+        await _context.SaveChangesAsync();
+
+        return assistances;
+    }
 }

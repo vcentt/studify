@@ -20,8 +20,9 @@ function NavigationHeader() {
               <Nav.Link href="/natural-sciences" className="nav-link">Natural Science</Nav.Link>
             </div>
             <div className="nav-section">
-              <h4 className="nav-section-title">Assistance</h4>
-              <Nav.Link href="assistance" className="nav-link">Assistance</Nav.Link>
+              <h4 className="nav-section-title">Assistances</h4>
+              <Nav.Link href="/assistance" className="nav-link">Assistance</Nav.Link>
+              <Nav.Link href="/assistance-pass" className="nav-link">Assistance Pass</Nav.Link>
             </div>
           </Nav>
         </Navbar.Collapse>

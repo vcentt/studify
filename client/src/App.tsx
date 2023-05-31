@@ -8,6 +8,7 @@ import { StudentsBySubject } from './components/StudentsBySubject'
 import { IStudentWithSubjects } from './utils/IStudents'
 import { Assistance } from './components/Assistance'
 import { OverviewStudents } from './components/OverviewStudents'
+import { AssistancePass } from './components/AssistancePass'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/natural-sciences' element={<StudentsBySubject subjectId={4} />} />
         <Route path='/add-student' element={<AddStudent />} />
         <Route path='/assistance' element={<Assistance />} />
+        <Route path='/assistance-pass' element={<AssistancePass />} />
       </Routes>
     </div>
   )

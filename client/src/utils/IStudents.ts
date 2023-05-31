@@ -25,3 +25,15 @@ export interface IStudentAssistance {
     lastName : string,
     isPresent : boolean
 }
+
+export interface IStudentAssistancePass {
+    studentId : number
+    date: string,
+    isPresent : boolean
+}
+
+export interface IStudentJustName {
+    studentId : number
+    firstName: string,
+    lastName : string
+}

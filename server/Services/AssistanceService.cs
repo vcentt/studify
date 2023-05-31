@@ -20,4 +20,9 @@ public class AssistanceService : IAssistanceService {
     {
         return await _assistanceRepository.Update(studentAssistance);
     }
+
+    public async Task<Assistance[]> Add(Assistance[] assistances)
+    {
+        return await _assistanceRepository.Add(assistances);
+    }
 }

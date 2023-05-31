@@ -43,4 +43,18 @@ public class AssistanceController : ControllerBase
             throw new Exception(ex.ToString());
         }
     }
+
+    [HttpPost]
+    public async Task<ActionResult<Assistance[]>> Add([FromBody] Assistance[] assistances)
+    {
+        try
+        {
+            await _assistanceService.Add(assistances);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.ToString());
+        }
+    }
 }
