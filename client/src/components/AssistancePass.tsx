@@ -10,25 +10,25 @@ export function AssistancePass() {
     const [assistanceData, setAssistanceData] = useState<IStudentAssistancePass[]>([])
     const [date, setDate] = useState('');
 
+    
+    const fetchStudents = async (): Promise<void> => {
+        try {
+            const response = await axios.get<IStudentJustName[]>('https://studify.azurewebsites.net/Student');
+            const initialAttendanceData = response.data.map((student) => ({
+                studentId: student.studentId,
+                date: date,
+                isPresent: false,
+            }));
+            setAllStudent(response.data);
+            setAssistanceData(initialAttendanceData);
+        } catch (error) {
+            console.error(error);
+        }
+    };
     useEffect(() => {
         fetchStudents();
       }, []);
-
-    const fetchStudents = async (): Promise<void> => {
-        try {
-          const response = await axios.get<IStudentJustName[]>("/students");
-          const initialAttendanceData = response.data.map((student) => ({
-            studentId: student.studentId,
-            date: date,
-            isPresent: false,
-          }));
-          setAllStudent(response.data);
-          setAssistanceData(initialAttendanceData);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-
+    
     const handleAssistanceChange = (studentId:number , isPresent:boolean) => {
         const updatedAssistanceData = assistanceData.map((data) => {
             if(data.studentId == studentId){
@@ -74,7 +74,6 @@ export function AssistancePass() {
                                     <td>
                                         <input
                                             type="checkbox"
-                                            checked={assistanceData.some((data) => data.studentId === student.studentId)}
                                             onChange={(e) => handleAssistanceChange(student.studentId, e.target.checked)}
                                         />
                                     </td>
