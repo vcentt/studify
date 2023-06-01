@@ -28,7 +28,7 @@ export interface IStudentAssistance {
 
 export interface IStudentAssistancePass {
     studentId : number
-    date: string,
+    assistanceDate: string,
     isPresent : boolean
 }
 

@@ -8,7 +8,6 @@ import { IStudentAssistancePass, IStudentJustName } from "../utils/IStudents"
 export function AssistancePass() {
     const [allStudent, setAllStudent] = useState<IStudentJustName[]>([])
     const [assistanceData, setAssistanceData] = useState<IStudentAssistancePass[]>([])
-    const [AssistanceToSend, setAssistanceToSend] = useState<string[]>([])
     const [date, setDate] = useState('');
 
     
@@ -17,7 +16,7 @@ export function AssistancePass() {
             const response = await axios.get<IStudentJustName[]>('https://studify.azurewebsites.net/Student');
             const initialAttendanceData = response.data.map((student) => ({
                 studentId: student.studentId,
-                date: '',
+                assistanceDate: date,
                 isPresent: false,
             }));
             setAllStudent(response.data);
@@ -29,12 +28,12 @@ export function AssistancePass() {
 
     useEffect(() => {
         fetchStudents();
-      }, []);
+      }, [date]);
     
     const handleAssistanceChange = (studentId:number , isPresent:boolean) => {
         const updatedAssistanceData = assistanceData.map((data) => {
             if(data.studentId == studentId){
-                return {...data, date, isPresent}
+                return {...data, isPresent}
             }
             return data;
         });
@@ -43,13 +42,7 @@ export function AssistancePass() {
 
 
     const handleToSubmitAssistance = () => {
-
-        const allAssistance = assistanceData.map((student) =>{
-            return student.date = date
-        });
-        setAssistanceToSend(allAssistance);
-
-        axios.post('https://studify.azurewebsites.net/Assistance', AssistanceToSend)
+        axios.post('https://studify.azurewebsites.net/Assistance', assistanceData)
             .then(response => {
                 console.log(response.data);
             })
