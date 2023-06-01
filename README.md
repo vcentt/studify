@@ -1,6 +1,6 @@
 # Studify - Student Management System
 
-Studify is a web-based application designed to help teachers efficiently manage student information, grades, and attendance. The project aims to provide a user-friendly interface for teachers to keep track of their students' performance and attendance in four core subjects taught at school.
+Studify is a web-based application designed to help teachers efficiently manage student information, grades, and assistance. The project aims to provide a user-friendly interface for teachers to keep track of their students' performance and attendance in four core subjects taught at school.
 
 ## Features
 Student Management: Easily add, update, and remove student records, including their personal details such as name.
