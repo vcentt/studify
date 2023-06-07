@@ -57,6 +57,7 @@ export function StudentsBySubject({ subjectId }: Props) {
                     <tr>
                         <th>Full Name</th>
                         <th>Score</th>
+                        <th>Literal</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -66,6 +67,7 @@ export function StudentsBySubject({ subjectId }: Props) {
                             return (
                                 <tr key={student.studentId}>
                                     <td>{`${student.firstName} ${student.lastName}`}</td>
+                                    <td>{student.grade}</td>
                                     <td>{calculateGradeAverage(student.grade)}</td>
                                     <td>
                                         <Button onClick={() => { handleShowModal(student.studentId) }} size="sm" className="mr-2"><FaEdit className="edit-icon" /></Button>
