@@ -1,10 +1,10 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './CSS/NavigationHeader.css';
 
-function NavigationHeader() {
+export function NavigationHeader() {
   return (
     <Navbar bg="light" variant="light" expand="lg" className="sidebar-nav">
-      <Container>
+      <Container fluid> {/* Update to fluid container */}
         <Navbar.Toggle aria-controls="sidebar-nav" />
         <Navbar.Collapse id="sidebar-nav">
           <Nav className="flex-column">
@@ -30,5 +30,3 @@ function NavigationHeader() {
     </Navbar>
   );
 }
-
-export default NavigationHeader;
